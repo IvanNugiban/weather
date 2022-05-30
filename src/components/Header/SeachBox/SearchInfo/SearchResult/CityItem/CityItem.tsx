@@ -4,7 +4,8 @@ import {ICities} from "../../../../../../types/ICity";
 import useActions from "../../../../../../hooks/useActions";
 
 interface IProps {
-    city: ICities
+    city: ICities,
+    clearInput: () => void
 }
 
 const StyledCityItem = styled.h6`
@@ -17,9 +18,12 @@ const StyledCityItem = styled.h6`
   }
 `
 
-const CityItem = ({city}: IProps) => {
+const CityItem = ({city, clearInput}: IProps) => {
     const {setCity} = useActions();
-    return <StyledCityItem  onMouseDown={() => setCity(city) }>{city.name}, {city.country}, {city?.state && city.state}</StyledCityItem>
+    return <StyledCityItem  onMouseDown={() => {
+        setCity(city);
+        clearInput();
+    } }>{city.name}, {city.country}, {city?.state && city.state}</StyledCityItem>
 };
 
 export default CityItem;

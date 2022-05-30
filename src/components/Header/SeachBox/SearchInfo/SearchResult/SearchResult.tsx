@@ -7,7 +7,8 @@ import {ICities} from "../../../../../types/ICity";
 const limit = 5;
 
 interface IProps {
-    cityName: string
+    cityName: string;
+    clearInput: () => void;
 }
 
 
@@ -21,18 +22,17 @@ const CitiesList = styled.div`
 const Message = styled.h2`
   padding: 10px;
   font-size: ${({theme}) => theme.fontSize.bigger};
-  color: ${({color}) => color === "danger" ? "red" : "#9C9C9C" }
+  color: ${({color}) => color === "danger" ? "red" : "black"}
 `
 
-const SearchResult = ({cityName}: IProps) => {
+const SearchResult = ({cityName, clearInput}: IProps) => {
     const {data: cities, isLoading, error} = useGetCitiesQuery({cityName, limit});
     const [citiesArray, setCitiesArray] = useState<ICities[] | any>([]);
 
     useMemo(() => {
         if (cities?.length) {
             const filteredArray = cities.filter((city: ICities, index, array) => array.findIndex((city2: ICities) => (city2.lon === city.lon && city2.lat == city.lat)) === index)
-            const searchedArray = filteredArray.map((city: ICities) => <CityItem key={`${city.lat} ${city.lon}`}
-                                                                                 city={city}/>);
+            const searchedArray = filteredArray.map((city: ICities) => <CityItem key={`${city.lat} ${city.lon}`} clearInput={clearInput} city={city}/>);
             setCitiesArray(searchedArray)
         }
     }, [cities]);

@@ -5,6 +5,7 @@ import SearchResult from "./SearchResult/SearchResult";
 
 const StyledSearchInfo = styled.div`
   position: absolute;
+  z-index: 999;
   top: 47px;
   border-radius: 5px;
   width: 100%;
@@ -13,12 +14,13 @@ const StyledSearchInfo = styled.div`
 
 interface IProps {
     value: string;
+    clearInput: () => void;
 }
 
-const SearchInfo = ({value} : IProps) => {
+const SearchInfo = ({value, clearInput} : IProps) => {
     return (
        <StyledSearchInfo>
-           {!value ? <RecentSearch/> : <SearchResult cityName={value}/>}
+           {!value ? <RecentSearch/> : <SearchResult clearInput={clearInput} cityName={value}/>}
        </StyledSearchInfo>
     );
 };

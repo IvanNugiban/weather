@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styled from "styled-components";
 import SearchInfo from "./SearchInfo/SearchInfo";
 import useInput from "../../../hooks/useInput";
 import searchIcon from '../../../img/search.png'
+import {SearchContext} from "../../../context";
 
 interface IProps {
     margin?: string
@@ -51,12 +52,13 @@ const SearchBoxContainer = styled.div<IProps>`
 
 const SearchBox = ({margin}: IProps) => {
     const [activeState, setActiveState] = useState(false);
-    const {bind} = useInput('');
+    const {bind, clear} = useInput('');
+    const searchBox = useContext(SearchContext)
     return (
         <SearchBoxContainer margin={margin}>
-            <SearchInput {...bind} onFocus={() => setActiveState(true)} onBlur={() => setActiveState(false)}
+            <SearchInput ref={searchBox} {...bind} onFocus={() => setActiveState(true)} onBlur={() => setActiveState(false)}
                          placeholder="Search city"/>
-            {activeState && <SearchInfo value={bind.value}/>}
+            {activeState && <SearchInfo clearInput = {clear} value={bind.value}/>}
         </SearchBoxContainer>
     );
 };

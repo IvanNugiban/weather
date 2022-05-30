@@ -5,20 +5,23 @@ export interface ITheme {
     },
     media: {
         phone: string,
+        intermediate: string,
         tablet: string,
     },
     fontSize: {
         medium: string,
-        bigger: string
+        bigger: string,
+        large: string,
+        veryLarge:string,
     }
     background: {
         bg: string
     },
     fontWeight: {
-        light: number,
-        regular: number,
-        medium: number,
-        bold: number,
-        black: number
+        light: string,
+        regular: string,
+        medium: string,
+        bold: string,
+        black: string
     }
 }

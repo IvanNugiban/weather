@@ -1,17 +1,21 @@
-import React from 'react';
-import {ThemeProvider} from "styled-components";
-import theme from "./styles/theme";
+import React, {useRef} from 'react';
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import {SearchContext} from "./context";
 
 function App() {
+    const searchBox = useRef();
     return (
-        <ThemeProvider theme={theme}>
+        <SearchContext.Provider value={searchBox}>
             <Header/>
+            <Navbar/>
             <Main/>
-            <footer>lorem</footer>
-        </ThemeProvider>
-    );
+            <Footer/>
+        </SearchContext.Provider>
+    )
+        ;
 }
 
 export default App;

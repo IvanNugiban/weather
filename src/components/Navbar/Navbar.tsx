@@ -1,10 +1,19 @@
 import React from 'react';
+import styled from "styled-components";
+import SearchedCities from "./SearchedCities/SearchedCities";
+import TypeOfWeather from "./TypeOfWeather/TypeOfWeather";
+
+const StyledNavbar = styled.nav`
+position: relative;
+`
+
 
 const Navbar = () => {
     return (
-        <div>
-            
-        </div>
+        <StyledNavbar>
+                <SearchedCities/>
+                <TypeOfWeather/>
+        </StyledNavbar>
     );
 };
 
