@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "../../../ui/Button/Button";
 import Paragraph from "../../../ui/Paragraph/Paragaph";
 import TitleH4 from "../../../ui/TitleH4/TitleH4";
-import {SearchContext} from "../../../context";
+import {HeaderContext} from "../../../context";
 
 
 const StyledWelcomeSign = styled.div`
@@ -23,7 +23,7 @@ const StyledWelcomeSign = styled.div`
 `
 
 const WelcomeSign = () => {
-    const searchBox = useContext(SearchContext);
+    const {searchBox} = useContext(HeaderContext);
     function focusOnSearch() {
         searchBox?.current.focus()
     }

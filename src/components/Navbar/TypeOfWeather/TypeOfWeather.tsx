@@ -4,7 +4,7 @@ import Container from "../../Container/Container";
 import TypesList from "./TypesList/TypesList";
 
 const StyledTypeOfWeather = styled.div`
-  background-color: #005986;
+  background-color: ${({theme}) => theme.typeOfWeatherBg};
 `
 
 

@@ -2,16 +2,18 @@ import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import {citiesApi} from "../services/citiesService";
 import citySlice from "./slices/citySlice";
 import {weatherApi} from "../services/weatherService";
+import weatherSlice from "./slices/weatherSlice";
 
 const rootReducer = combineReducers({
     [citiesApi.reducerPath]: citiesApi.reducer,
     [weatherApi.reducerPath]: weatherApi.reducer,
-    city: citySlice
+    city: citySlice,
+    weather: weatherSlice,
 })
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(citiesApi.middleware, weatherApi.middleware)
+    middleware: getDefaultMiddleware => getDefaultMiddleware({serializableCheck: false}).concat(citiesApi.middleware, weatherApi.middleware)
 })
 
 

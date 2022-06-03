@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ICities} from "../../types/ICity";
 
-export interface ICitySlice {
+interface ICitySlice {
     city: {
         name: string | undefined,
         lon: number | undefined,

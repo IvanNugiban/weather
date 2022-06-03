@@ -1,3 +1,4 @@
-import {createContext, MutableRefObject} from "react";
+import {createContext} from "react";
 
-export const SearchContext = createContext<MutableRefObject<any> | null>(null);
+
+export const HeaderContext = createContext<any>(null);

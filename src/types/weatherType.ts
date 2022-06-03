@@ -18,7 +18,7 @@ export interface IWeather {
     }
 }
 
-interface IWeatherItem {
+export interface IWeatherItem{
     dt: string,
         main: {
             "temp": number,

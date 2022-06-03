@@ -1,24 +1,24 @@
 import React from 'react';
-import TitleH3 from "../../../../ui/TitleH3/TitleH3";
+import TitleH3 from "../../../../../ui/TitleH3/TitleH3";
 import styled from "styled-components";
 import {CircularProgressbar} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import theme from "../../../../styles/theme";
-import TitleH4 from "../../../../ui/TitleH4/TitleH4";
-import Paragraph from "../../../../ui/Paragraph/Paragaph";
+import theme from "../../../../../styles/theme";
+import TitleH4 from "../../../../../ui/TitleH4/TitleH4";
+import Paragraph from "../../../../../ui/Paragraph/Paragaph";
 
 const StyledCloudsCard = styled.div`
   background-color: white;
   padding: 20px;
   border-radius: 5px;
+  grid-area: clouds;
 `
 
 const StyledProgressBar = styled.div`
   display: flex;
   margin-top: 10px;
-
   svg {
-    width: 200px;
+    max-width: 120px;
     margin-right: 30px;
   }
   h4 {
@@ -26,12 +26,12 @@ const StyledProgressBar = styled.div`
   }
   @media ${({theme}) => theme.media.tablet} {
     svg {
-      width: 300px;
+      width: 350px;
     }
   }
   @media ${({theme}) => theme.media.intermediate} {
     svg {
-      width: 200px;
+      max-width: 100px;
     }
   }
 
@@ -46,11 +46,11 @@ const CloudsCard = ({cloudsPercent}: IProps) => {
     let cloudsTypeParagraph;
     if (cloudsPercent <= 10) {
         cloudsTypeTitle = "Not cloudy";
-        cloudsTypeParagraph = "There are no clouds or they are almost absent"
+        cloudsTypeParagraph = "There are no clouds or they are almost absent. Sky is clear"
     }
     else if (cloudsPercent <= 50 && cloudsPercent > 10) {
         cloudsTypeTitle = "A little cloudy";
-        cloudsTypeParagraph = "In some places the sky is covered with clouds"
+        cloudsTypeParagraph = "In some places the sky is covered with clouds."
     }
     else  {
         cloudsTypeTitle = "Cloudy";

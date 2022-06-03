@@ -11,6 +11,7 @@ interface ITitleH5 {
 
 interface IProps extends ITitleH5{
     children: React.ReactNode;
+    id?: string;
 }
 
 const StyledTitleH5 = styled.h5<ITitleH5>`

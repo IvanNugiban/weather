@@ -1,46 +1,36 @@
-import React from 'react';
-import styled from "styled-components";
-import WeatherCard from "./WeatherCard/WeatherCard";
-import {ICities} from "../../../types/ICity";
+import React, {useEffect} from 'react';
 import {useGetWeatherQuery} from "../../../services/weatherService";
 import Loader from "../../../ui/Loader/Loader";
-import CloudsCard from "./CloudsCard/CloudsCard";
-
-const StyledWeatherMenu = styled.div`
-  padding: 0 50px;
-  display: grid;
-  grid-template-columns: 60% 40%;
-  grid-auto-flow: row;
-  grid-gap: 15px;
-  @media ${({theme}) => theme.media.tablet} {
-    grid-template-columns: 55% 45%;
-    grid-gap: 10px;
-    padding: 0 15px;
-  }
-  @media ${({theme}) => theme.media.intermediate} {
-    grid-template-columns: 100%;
-    grid-gap: 10px;
-    padding: 0 15px;
-  }
-  @media ${({theme}) => theme.media.phone} {
-    padding: 0 5px;
-  }
-`
+import {useTypedSelector} from "../../../redux/typedReduxHooks";
+import WeatherNow from "./WeatherNow/WeatherNow";
+import {ICities} from "../../../types/ICity";
+import FutureWeather from "./FutureWeather/FutureWeather";
+import useActions from "../../../hooks/useActions";
 
 interface IProps {
     city: ICities
 }
 
 const WeatherMenu = ({city}: IProps) => {
-    const {data: weather, isLoading, error} = useGetWeatherQuery({lon: city.lon, lat: city.lat, cnt: 1});
-    if (isLoading) return <Loader/>
-
+    const numberOfRequests = useTypedSelector(state => state.weather.numberOfRequests);
+    const weatherType = useTypedSelector(state => state.weather.type);
+    const {setTheme} = useActions();
+    const {data: weather, isFetching, error} = useGetWeatherQuery({
+        lon: city.lon,
+        lat: city.lat,
+        cnt: numberOfRequests
+    });
+    useEffect(() => {
+        console.log("worked");
+        if (weather) setTheme(weather.list[0].weather[0].main)
+    }, [weather])
+    if (isFetching) return <Loader/>
 
     return (
-        <StyledWeatherMenu>
-            <WeatherCard city={city} weather={weather!}/>
-            <CloudsCard cloudsPercent={weather!.list[0].clouds.all}/>
-        </StyledWeatherMenu>
+        <>
+            {weatherType === "Now" ? <WeatherNow city={city} weather={weather!}/> :
+                <FutureWeather weatherType={weatherType} city={city} weather={weather!}/>}
+        </>
     );
 };
 

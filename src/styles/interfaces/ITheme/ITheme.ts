@@ -12,16 +12,20 @@ export interface ITheme {
         medium: string,
         bigger: string,
         large: string,
-        veryLarge:string,
+        larger: string,
+        veryLarge: string,
     }
-    background: {
-        bg: string
-    },
     fontWeight: {
         light: string,
         regular: string,
         medium: string,
         bold: string,
         black: string
-    }
+    },
+    bodyBackground: string,
+    headerBackground: string,
+    typeOfWeatherBg: string,
+    searchedCityBg: string,
+    searchBoxBg: string,
+    cardHeaderBg: "rgba(0,0,0,0.55)",
 }

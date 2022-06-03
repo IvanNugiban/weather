@@ -10,6 +10,7 @@ interface IParagraph {
 
 interface IProps extends IParagraph{
     children: React.ReactNode;
+    id?: string;
 }
 
 const StyledParagraph = styled.p<IParagraph>`

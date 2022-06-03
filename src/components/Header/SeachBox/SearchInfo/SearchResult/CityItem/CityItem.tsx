@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
 import {ICities} from "../../../../../../types/ICity";
-import useActions from "../../../../../../hooks/useActions";
+import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 
 interface IProps {
     city: ICities,
-    clearInput: () => void
+    clearInput: () => void;
+    setCity: ActionCreatorWithPayload<ICities, string>
 }
 
 const StyledCityItem = styled.h6`
@@ -18,8 +19,7 @@ const StyledCityItem = styled.h6`
   }
 `
 
-const CityItem = ({city, clearInput}: IProps) => {
-    const {setCity} = useActions();
+const CityItem = ({city, clearInput, setCity}: IProps) => {
     return <StyledCityItem  onMouseDown={() => {
         setCity(city);
         clearInput();

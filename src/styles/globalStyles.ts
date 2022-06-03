@@ -45,8 +45,13 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: #92CAD7;
+    background: ${({theme}) => theme.bodyBackground} no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
+  
   
   input,
   button,
@@ -93,5 +98,15 @@ export default createGlobalStyle`
   h6 {
     font-size: inherit;
     font-weight: inherit;
+  }
+  @media ${({theme}) => theme.media.tablet} {
+    .popUp {
+      overflow: hidden;
+    }
+  }
+  @media ${({theme}) => theme.media.phone} {
+    .popUp {
+      overflow: hidden;
+    }
   }
 `

@@ -2,9 +2,9 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {IWeather} from "../types/weatherType";
 
 interface IParams {
-    lon: number | undefined,
-    lat: number | undefined,
-    cnt: number | undefined
+    lon: number ,
+    lat: number ,
+    cnt: number
 }
 
 

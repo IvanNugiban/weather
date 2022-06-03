@@ -15,12 +15,13 @@ const StyledSearchInfo = styled.div`
 interface IProps {
     value: string;
     clearInput: () => void;
+    closeWindow: () => void;
 }
 
-const SearchInfo = ({value, clearInput} : IProps) => {
+const SearchInfo = ({value, clearInput, closeWindow} : IProps) => {
     return (
        <StyledSearchInfo>
-           {!value ? <RecentSearch/> : <SearchResult clearInput={clearInput} cityName={value}/>}
+           {!value ? <RecentSearch/> : <SearchResult closeWindow={closeWindow} clearInput={clearInput} cityName={value}/>}
        </StyledSearchInfo>
     );
 };

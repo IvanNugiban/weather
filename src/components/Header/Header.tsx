@@ -6,7 +6,7 @@ import SearchBox from "./SeachBox/SearchBox";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 
 const StyledHeader = styled.header`
-  background-color:#005986 ;
+  background-color:${({theme}) => theme.headerBackground} ;
   padding: 10px 35px 10px 10px;
   @media${(props) => props.theme.media.phone} {
   padding: 5px 35px 5px 10px;

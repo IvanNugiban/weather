@@ -3,7 +3,7 @@ import styled from "styled-components";
 import SearchInfo from "./SearchInfo/SearchInfo";
 import useInput from "../../../hooks/useInput";
 import searchIcon from '../../../img/search.png'
-import {SearchContext} from "../../../context";
+import {HeaderContext} from "../../../context";
 
 interface IProps {
     margin?: string
@@ -13,7 +13,7 @@ const SearchInput = styled.input`
   width: 100%;
   padding: 9px 0;
   border-radius: 20px;
-  background-color: #337A9E;
+  background-color: ${({theme}) => theme.searchBoxBg};
   color: white;
   text-align: center;
   font-family: Roboto, sans-serif;
@@ -53,12 +53,11 @@ const SearchBoxContainer = styled.div<IProps>`
 const SearchBox = ({margin}: IProps) => {
     const [activeState, setActiveState] = useState(false);
     const {bind, clear} = useInput('');
-    const searchBox = useContext(SearchContext)
+    const {searchBox} = useContext(HeaderContext)
     return (
         <SearchBoxContainer margin={margin}>
-            <SearchInput ref={searchBox} {...bind} onFocus={() => setActiveState(true)} onBlur={() => setActiveState(false)}
-                         placeholder="Search city"/>
-            {activeState && <SearchInfo clearInput = {clear} value={bind.value}/>}
+            <SearchInput ref={searchBox} {...bind} onFocus={() => setActiveState(true)} onBlur={() => setActiveState(false)} placeholder="Search city"/>
+            {activeState && <SearchInfo closeWindow={() => setActiveState((prev : boolean) => !prev)} clearInput = {clear} value={bind.value}/>}
         </SearchBoxContainer>
     );
 };

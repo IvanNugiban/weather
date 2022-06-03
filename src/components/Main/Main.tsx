@@ -9,8 +9,8 @@ import {ICities} from "../../types/ICity";
 const StyledMain = styled.main`
   flex: 1 1 auto;
   padding: 10px 0;
+  position: relative;
 `
-
 
 const Main = () => {
     const chosenCity = useTypedSelector(state => state.city.city) as ICities;

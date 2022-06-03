@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import styled from "styled-components";
+import {HeaderContext} from "../../../context";
 
 const StyledHamburgerMenu = styled.span`
   position: relative;
+
   label {
     position: absolute;
     width: 30px;
@@ -58,10 +60,29 @@ const StyledHamburgerMenu = styled.span`
 `
 
 const HamburgerMenu = () => {
+    const {setMenuState, menuState, hamburgerMenu} = useContext(HeaderContext);
+
+    function togglePopUp() {
+        setMenuState((prev: boolean) => !prev)
+    }
+
+
+    useEffect(() => {
+        function closePopUp(e : any) {
+            if (menuState && !e.target.closest(".hamburger_menu")) {
+                hamburgerMenu?.current?.click()
+            }
+        }
+        document.body.addEventListener("click", closePopUp);
+        return () => {
+            document.body.removeEventListener("click", closePopUp)
+        }
+    }, [menuState])
+
     return (
-       <StyledHamburgerMenu >
-            <input id="menu-toggle" type="checkbox"/>
-            <label  htmlFor="menu-toggle"></label>
+        <StyledHamburgerMenu className="hamburger_menu">
+            <input onChange={togglePopUp} id="menu-toggle" type="checkbox"/>
+            <label ref={hamburgerMenu} htmlFor="menu-toggle"></label>
             <div></div>
         </StyledHamburgerMenu>
     );
