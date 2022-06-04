@@ -25,7 +25,7 @@ export interface ITheme {
     bodyBackground: string,
     headerBackground: string,
     typeOfWeatherBg: string,
-    searchedCityBg: string,
+    // searchedCityBg: string,
     searchBoxBg: string,
     cardHeaderBg: "rgba(0,0,0,0.55)",
 }

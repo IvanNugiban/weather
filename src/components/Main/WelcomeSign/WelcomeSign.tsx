@@ -8,12 +8,14 @@ import {HeaderContext} from "../../../context";
 
 const StyledWelcomeSign = styled.div`
   padding: 0 50px;
+
   & div:first-child {
-    background-color: white;
+    background-color: #D8EEEE;
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 10px;
   }
+
   @media ${({theme}) => theme.media.tablet} {
     padding: 0 10px;
   }

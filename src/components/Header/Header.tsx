@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Container from "../Container/Container";
 import Logo from "../Logo/Logo";
-import SearchBox from "./SeachBox/SearchBox";
+import SearchBox from "./SearchBox/SearchBox";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu";
 
 const StyledHeader = styled.header`

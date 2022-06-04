@@ -33,7 +33,7 @@ const baseTheme: ITheme = {
     headerBackground: "#005986",
     bodyBackground: "linear-gradient(0deg,#d8eeee,#d8eeee 25%,#64adc9 65%,#005986 90%,#005986)",
     typeOfWeatherBg: "#003651",
-    searchedCityBg: "#337A9E",
+    // searchedCityBg: "#337A9E",
     searchBoxBg: "#337A9E",
     cardHeaderBg: "rgba(0,0,0,0.55)",
 }
@@ -45,7 +45,7 @@ export const CloudsTheme: DefaultTheme = {
     bodyBackground: "linear-gradient(0deg,#e5dee2,#e5dee2 20%,#aba2b4 60%,#59516e 90%,#59516e)",
     cardBackground: "https://s.w-x.co/WeatherImages_Web/WeatherImage_MostlyCloudy-day_2.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70",
     typeOfWeatherBg: "#363142",
-    searchedCityBg: "#7A748B",
+    // searchedCityBg: "#7A748B",
     searchBoxBg: "#7A748B",
     cardIcon: Clouds,
 
@@ -58,7 +58,7 @@ export const RainTheme: DefaultTheme = {
     bodyBackground: "linear-gradient(0deg,#2a6377,#2a6377 20%,#214c61 60%,#213d4a 90%,#213d4a)",
     cardBackground: "https://s.w-x.co/WeatherImages_Web/WeatherImage_Rain-night_1.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70",
     typeOfWeatherBg: "#14252D",
-    searchedCityBg: "#4D646E",
+    // searchedCityBg: "#4D646E",
     searchBoxBg: "#4D646E",
     cardIcon: Rain
 
@@ -71,7 +71,7 @@ export const ClearTheme: DefaultTheme = {
     bodyBackground: "linear-gradient(0deg,#d8eeee,#d8eeee 25%,#64adc9 65%,#005986 90%,#005986)",
     cardBackground: "https://s.w-x.co/WeatherImages_Web/WeatherImage_Fair-day_2.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70",
     typeOfWeatherBg: "#003651",
-    searchedCityBg: "#337A9E",
+    // searchedCityBg: "#337A9E",
     searchBoxBg: "#337A9E",
     cardIcon: Clear,
 }
@@ -83,7 +83,7 @@ export const SnowTheme: DefaultTheme = {
     bodyBackground: " linear-gradient(0deg,#c7dce0,#c7dce0 20%,#628fa5 60%,#2c5773 90%,#2c5773)",
     cardBackground: "https://s.w-x.co/WeatherImages_Web/WeatherImage_SnowShowers-day_1.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70",
     typeOfWeatherBg: "#1A3445",
-    searchedCityBg: "#56798F",
+    // searchedCityBg: "#56798F",
     searchBoxBg: "#56798F",
     cardIcon: Snow,
 }

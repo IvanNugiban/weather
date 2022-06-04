@@ -6,10 +6,20 @@ import WeatherNow from "./WeatherNow/WeatherNow";
 import {ICities} from "../../../types/ICity";
 import FutureWeather from "./FutureWeather/FutureWeather";
 import useActions from "../../../hooks/useActions";
+import styled from "styled-components";
 
 interface IProps {
     city: ICities
 }
+
+const Error = styled.h1`
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  font-size: ${({theme}) => theme.fontSize.larger};
+  font-family: Roboto, sans-serif;
+  color: red;
+`
 
 const WeatherMenu = ({city}: IProps) => {
     const numberOfRequests = useTypedSelector(state => state.weather.numberOfRequests);
@@ -25,7 +35,7 @@ const WeatherMenu = ({city}: IProps) => {
         if (weather) setTheme(weather.list[0].weather[0].main)
     }, [weather])
     if (isFetching) return <Loader/>
-
+    if (error) return <Error>Server error</Error>
     return (
         <>
             {weatherType === "Now" ? <WeatherNow city={city} weather={weather!}/> :

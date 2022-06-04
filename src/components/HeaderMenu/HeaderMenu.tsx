@@ -14,7 +14,7 @@ const StyledHeaderMenu = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  height: 87vh;
+  height: 90vh;
   z-index: 999;
   display: flex;
   justify-content: center;
@@ -73,8 +73,11 @@ const HeaderMenu = () => {
                 </HeaderMenuList>
                 <TitleH2 fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.large}>Other</TitleH2>
                 <HeaderMenuList>
-                    <HeaderMenuItem>About us</HeaderMenuItem>
-                    <HeaderMenuItem><a href="">Github repository</a></HeaderMenuItem>
+                    <HeaderMenuItem><a href="https://github.com/IvanNugiban/weather">Github repository</a></HeaderMenuItem>
+                    <HeaderMenuItem><a href="https://www.instagram.com/ivan_peshikov">Instagram</a></HeaderMenuItem>
+                    <HeaderMenuItem><a href="https://www.youtube.com/channel/UCUq-j0bhiFNU5-7FfuOOmtw">Youtube</a></HeaderMenuItem>
+                    <HeaderMenuItem><a href="https://github.com/IvanNugiban">Github</a></HeaderMenuItem>
+                    <HeaderMenuItem><a href="https://www.codewars.com/users/IvanNugiban">Codewars</a></HeaderMenuItem>
                 </HeaderMenuList>
             </Container>
         </StyledHeaderMenu>

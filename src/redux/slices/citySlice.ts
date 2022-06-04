@@ -8,7 +8,8 @@ interface ICitySlice {
         lat: number | undefined,
         country: string | undefined,
         state?: string
-    }
+    };
+    searchedCities: ICities[];
 }
 
 const initialState: ICitySlice = {
@@ -18,7 +19,8 @@ const initialState: ICitySlice = {
       lat: undefined,
       country: undefined,
       state: undefined
-  }
+  },
+    searchedCities: [],
 }
 
 const citySlice = createSlice({
@@ -27,6 +29,9 @@ const citySlice = createSlice({
         reducers: {
             setCity(state, action: PayloadAction<ICities>) {
               state.city = {...action.payload}
+            },
+            setSearchedCities(state, action: PayloadAction<ICities[]>) {
+                state.searchedCities = action.payload;
             }
         }
     }
