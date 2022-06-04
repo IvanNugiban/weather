@@ -10,7 +10,7 @@ const StyledWelcomeSign = styled.div`
   padding: 0 50px;
 
   & div:first-child {
-    background-color: #D8EEEE;
+    background-color: white;
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 10px;
