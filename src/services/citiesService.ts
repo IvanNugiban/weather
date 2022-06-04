@@ -8,7 +8,7 @@ interface IParams {
 
 export const citiesApi = createApi({
     reducerPath: "citiesApi",
-    baseQuery: fetchBaseQuery({baseUrl: "http://api.openweathermap.org/geo/1.0"}),
+    baseQuery: fetchBaseQuery({baseUrl: "https://api.openweathermap.org/geo/1.0"}),
     endpoints: (builder) => ({
         getCities: builder.query<ICities[], IParams>({
             query: (info: IParams) => ({

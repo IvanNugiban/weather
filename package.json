@@ -1,7 +1,7 @@
 {
   "name": "test",
   "version": "0.1.0",
-  "homepage": "https://IvanNugiban.github.io",
+  "homepage": "https://IvanNugiban.github.io/weather",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
-    "@types/three": "^0.141.0"
+    "@types/three": "^0.141.0",
+    "gh-pages": "^4.0.0"
   }
 }

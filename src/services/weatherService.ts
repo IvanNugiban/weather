@@ -10,7 +10,7 @@ interface IParams {
 
 export const weatherApi = createApi({
     reducerPath: "weatherApi",
-    baseQuery: fetchBaseQuery({baseUrl: "http://api.openweathermap.org/data/2.5"}),
+    baseQuery: fetchBaseQuery({baseUrl: "https://api.openweathermap.org/data/2.5"}),
     endpoints: (builder) => ({
         getWeather: builder.query<IWeather, IParams>({
             query: ({ lon, lat, cnt} : IParams) => ({
