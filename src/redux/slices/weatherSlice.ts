@@ -1,5 +1,4 @@
-import {ActionCreatorWithPayload, createSlice} from "@reduxjs/toolkit";
-import {ITheme} from "../../styles/interfaces/ITheme/ITheme";
+import {createSlice} from "@reduxjs/toolkit";
 import {DefaultTheme} from "styled-components";
 import {ClearTheme, CloudsTheme, RainTheme, SnowTheme} from "../../styles/theme";
 

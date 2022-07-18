@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import useActions from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../redux/typedReduxHooks";
+import {Link} from "react-router-dom";
 
 type weatherType = "Now" | "Hourly" | "Daily";
 
@@ -35,12 +36,12 @@ const TypesList = () => {
 
     return (
         <StyledTypesList>
-            <StyledListItem chosen={chosenType === "Now"}
-                            onClick={() => chooseTypeOfWeather("Now")}>Now</StyledListItem>
-            <StyledListItem chosen={chosenType === "Hourly"}
-                            onClick={() => chooseTypeOfWeather("Hourly")}>Hourly</StyledListItem>
-            <StyledListItem chosen={chosenType === "Daily"}
-                            onClick={() => chooseTypeOfWeather("Daily")}>Daily</StyledListItem>
+            <Link to='now'> <StyledListItem chosen={chosenType === "Now"}
+                            onClick={() => chooseTypeOfWeather("Now")}>Now</StyledListItem></Link>
+            <Link to='hourly'> <StyledListItem chosen={chosenType === "Hourly"}
+                            onClick={() => chooseTypeOfWeather("Hourly")}>Hourly</StyledListItem></Link>
+                <Link to='daily'> <StyledListItem chosen={chosenType === "Daily"}
+                            onClick={() => chooseTypeOfWeather("Daily")}>Daily</StyledListItem></Link>
 
         </StyledTypesList>
     );

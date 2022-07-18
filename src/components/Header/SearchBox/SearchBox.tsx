@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import styled from "styled-components";
 import SearchInfo from "./SearchInfo/SearchInfo";
 import useInput from "../../../hooks/useInput";
-import searchIcon from '../../../img/search.png'
+import searchIcon from '../../../img/other/search.png'
 import {HeaderContext} from "../../../context";
 
 interface IProps {

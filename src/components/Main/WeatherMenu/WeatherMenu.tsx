@@ -2,11 +2,10 @@ import React, {useEffect} from 'react';
 import {useGetWeatherQuery} from "../../../services/weatherService";
 import Loader from "../../../ui/Loader/Loader";
 import {useTypedSelector} from "../../../redux/typedReduxHooks";
-import WeatherNow from "./WeatherNow/WeatherNow";
 import {ICities} from "../../../types/ICity";
-import FutureWeather from "./FutureWeather/FutureWeather";
 import useActions from "../../../hooks/useActions";
 import styled from "styled-components";
+import WeatherRoutes from "../../../routes/WeatherRoutes";
 
 interface IProps {
     city: ICities
@@ -31,16 +30,12 @@ const WeatherMenu = ({city}: IProps) => {
         cnt: numberOfRequests
     });
     useEffect(() => {
-        console.log("worked");
         if (weather) setTheme(weather.list[0].weather[0].main)
     }, [weather])
     if (isFetching) return <Loader/>
     if (error) return <Error>Server error</Error>
     return (
-        <>
-            {weatherType === "Now" ? <WeatherNow city={city} weather={weather!}/> :
-                <FutureWeather weatherType={weatherType} city={city} weather={weather!}/>}
-        </>
+       <WeatherRoutes city={city} weather={weather!} weatherType={weatherType as "Hourly" | "Daily"}/>
     );
 };
 

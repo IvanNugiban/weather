@@ -7,7 +7,7 @@ import theme from "../../../../../../styles/theme";
 import {IWeatherItem} from "../../../../../../types/weatherType";
 
 type Details = {
-    src:  generalWeatherIcons.temperature | summaryWeatherIcons.clouds | generalWeatherIcons.humidity | summaryWeatherIcons.wind | summaryWeatherIcons.water_drop | generalWeatherIcons.weather
+    src:  typeof generalWeatherIcons.temperature
 }
 
 interface IProps {
@@ -30,7 +30,8 @@ const DetailsContent = styled.div`
   @media ${({theme}) => theme.media.intermediate} {
   }
     #wind_details,
-    #description_details {
+    #description_details,
+    #weather_details{
       display: block;
     }
   }

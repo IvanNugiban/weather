@@ -1,7 +1,7 @@
 import 'styled-components';
-import {ITheme} from "./styles/interfaces/ITheme/ITheme";
-import ThemeEnum from "./styles/interfaces/themeEnum/themeEnum";
-import Clouds from "./img/Clouds.png"
+import {ITheme} from "../../styles/interfaces/ITheme/ITheme";
+import ThemeEnum from "../../styles/interfaces/themeEnum/themeEnum";
+import Clouds from "../../img/theme/Clouds.png"
 
 declare module 'styled-components' {
     export interface DefaultTheme extends ITheme {
