@@ -3,9 +3,8 @@ import styled from "styled-components";
 import Container from "../Container/Container";
 import TitleH2 from "../../ui/TitleH2/TitleH2";
 import theme from "../../styles/theme";
-import useActions from "../../hooks/useActions";
 import {HeaderContext} from "../../context";
-import {ActionCreatorWithoutPayload} from "@reduxjs/toolkit";
+import {useNavigate} from "react-router-dom";
 
 const StyledHeaderMenu = styled.div`
   padding: 30px;
@@ -47,9 +46,9 @@ a {
 `
 
 const HeaderMenu = () => {
-    const {setNowWeather, setDailyWeather, setHourlyWeather} = useActions();
+    const navigate = useNavigate();
     const {searchBox, hamburgerMenu} = useContext(HeaderContext)
-    function liCLick(callback: ActionCreatorWithoutPayload<string> | null) {
+    function liCLick(callback: null | (() => void)) {
         if (typeof callback === "function") callback();
         else {searchBox.current.focus()}
         hamburgerMenu.current.click();
@@ -67,9 +66,9 @@ const HeaderMenu = () => {
                 <TitleH2 fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.large}>Weather forecast</TitleH2>
                 <HeaderMenuList>
                     <HeaderMenuItem onClick={() => liCLick(null)}>Search Weather</HeaderMenuItem>
-                    <HeaderMenuItem onClick={() => liCLick(setNowWeather)}>Weather Now</HeaderMenuItem>
-                    <HeaderMenuItem onClick={() => liCLick(setHourlyWeather)}>Hourly Weather</HeaderMenuItem>
-                    <HeaderMenuItem onClick={() => liCLick(setDailyWeather)}>Daily weather</HeaderMenuItem>
+                    <HeaderMenuItem onClick={() => liCLick(() => navigate("./now", {replace: true}))}>Weather Now</HeaderMenuItem>
+                    <HeaderMenuItem onClick={() => liCLick(() => navigate("./hourly", {replace: true}))}>Hourly Weather</HeaderMenuItem>
+                    <HeaderMenuItem onClick={() => liCLick(() => navigate("./daily", {replace: true}))}>Daily weather</HeaderMenuItem>
                 </HeaderMenuList>
                 <TitleH2 fontWeight={theme.fontWeight.bold} fontSize={theme.fontSize.large}>Other</TitleH2>
                 <HeaderMenuList>

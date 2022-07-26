@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import useActions from "../../../../hooks/useActions";
-import {useTypedSelector} from "../../../../redux/typedReduxHooks";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
-type weatherType = "Now" | "Hourly" | "Daily";
 
 const StyledTypesList = styled.ul`
   display: flex;
@@ -25,23 +22,16 @@ const StyledListItem = styled.li<{ chosen?: boolean }>`
 `
 
 const TypesList = () => {
-    const {setNowWeather, setDailyWeather, setHourlyWeather} = useActions();
-    const chosenType = useTypedSelector(state => state.weather.type);
-
-    function chooseTypeOfWeather(type: weatherType): void {
-        if (type === "Now") setNowWeather();
-        else if (type === "Hourly") setHourlyWeather();
-        else setDailyWeather();
-    }
+    const {pathname} = useLocation();
 
     return (
         <StyledTypesList>
-            <Link to='now'> <StyledListItem chosen={chosenType === "Now"}
-                            onClick={() => chooseTypeOfWeather("Now")}>Now</StyledListItem></Link>
-            <Link to='hourly'> <StyledListItem chosen={chosenType === "Hourly"}
-                            onClick={() => chooseTypeOfWeather("Hourly")}>Hourly</StyledListItem></Link>
-                <Link to='daily'> <StyledListItem chosen={chosenType === "Daily"}
-                            onClick={() => chooseTypeOfWeather("Daily")}>Daily</StyledListItem></Link>
+            <Link  to='./now'> <StyledListItem
+                chosen={pathname === "/now"}>Now</StyledListItem></Link>
+            <Link  to='./hourly'> <StyledListItem
+                chosen={pathname === "/hourly"}>Hourly</StyledListItem></Link>
+            <Link  to='./daily'> <StyledListItem
+                chosen={pathname === "/daily"}>Daily</StyledListItem></Link>
 
         </StyledTypesList>
     );
