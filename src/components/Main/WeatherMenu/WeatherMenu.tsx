@@ -23,10 +23,11 @@ const Error = styled.h1`
 const WeatherMenu = ({city}: IProps) => {
     const {pathname} = useLocation();
     const {setTheme} = useActions();
+
     const {data: weather, isFetching, error} = useGetWeatherQuery({
         lon: city.lon,
         lat: city.lat,
-        cnt: (pathname === "/now") ? 1 : (pathname === "hourly") ? 9 : 40
+        cnt: (pathname === "/now") ? 1 : (pathname === "/hourly") ? 9 : 40
     });
     useEffect(() => {
         if (weather) setTheme(weather.list[0].weather[0].main)
@@ -34,7 +35,7 @@ const WeatherMenu = ({city}: IProps) => {
     if (isFetching) return <Loader/>
     if (error) return <Error>Server error</Error>
     return (
-       <WeatherRoutes city={city} weather={weather!} weatherType={pathname === "/hourly" ? "Hourly" : "Daily" as "Hourly" | "Daily"}/>
+       <WeatherRoutes city={city} weather={weather!} weatherType={pathname === "/hourly" ? "Hourly" : "Daily"}/>
     );
 };
 
